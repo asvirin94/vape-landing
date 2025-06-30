@@ -104,7 +104,6 @@ export function CollectionsRedesigned() {
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
   const [overlayOpen, setOverlayOpen] = useState<number | null>(null)
 
-  // Определяем количество карточек для показа - до 1360 показываем 2 карточки
   const getCardsPerView = () => {
     if (typeof window === "undefined") return 1
     if (window.innerWidth >= 1360) return 3
@@ -124,7 +123,6 @@ export function CollectionsRedesigned() {
     return () => window.removeEventListener("resize", updateLayout)
   }, [])
 
-  // Максимальный индекс слайда
   const maxSlide = Math.max(0, collections.length - cardsPerView)
 
   const nextSlide = useCallback(() => {
@@ -145,9 +143,8 @@ export function CollectionsRedesigned() {
     [maxSlide],
   )
 
-  // Закрытие оверлея при клике вне его
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (overlayOpen !== null) {
         const target = event.target as Element
         if (!target.closest(".overlay-content") && !target.closest(".collection-card")) {
@@ -164,7 +161,6 @@ export function CollectionsRedesigned() {
     }
   }, [overlayOpen])
 
-  // Touch события
   const minSwipeDistance = 50
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -196,7 +192,6 @@ export function CollectionsRedesigned() {
     <section id="collections" className="py-12 tablet:py-16 laptop:py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black" />
 
-      {/* Animated background elements */}
       <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute top-20 left-20 w-64 h-64 bg-green-400/5 rounded-full blur-3xl animate-pulse" />
         <div
@@ -212,7 +207,7 @@ export function CollectionsRedesigned() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl mobile:text-4xl tablet:text-5xl font-bold mb-6">
+          <h2 className="text-white text-3xl mobile:text-4xl tablet:text-5xl font-bold mb-6">
             Коллекции{" "}
             <span className="bg-gradient-to-r from-green-400 to-purple-500 bg-clip-text text-transparent">бренда</span>
           </h2>
@@ -222,14 +217,12 @@ export function CollectionsRedesigned() {
           <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-purple-500 mx-auto rounded-full" />
         </motion.div>
 
-        {/* Slider Container */}
         <motion.div
           className="relative max-w-7xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {/* Slider */}
           <div className="relative overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-out"
@@ -261,7 +254,6 @@ export function CollectionsRedesigned() {
             </div>
           </div>
 
-          {/* Navigation - теперь внизу для всех разрешений */}
           <div className="flex flex-col items-center mt-6 mobile:mt-8 space-y-4">
             {/* Dots Navigation */}
             {collections.length > cardsPerView && (

@@ -7,10 +7,9 @@ export function Footer() {
   return (
     <footer className="py-16 bg-gradient-to-t from-black to-gray-900 border-t border-gray-800">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
-          {/* Brand */}
+        <div className="grid laptop:grid-cols-3 gap-12 mb-12">
           <motion.div
-            className="space-y-4"
+            className="space-y-4 flex flex-col items-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -23,15 +22,13 @@ export function Footer() {
               </div>
               <div className="text-sm text-gray-400">& Tasty LAB</div>
             </div>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed text-center">
               Инновационные жидкости и POD-системы с узнаваемым дизайном Rick & Morty. Делаем вейпинг крутым с 2019
               года! 🚀
             </p>
           </motion.div>
-
-          {/* Coverage */}
           <motion.div
-            className="space-y-4"
+            className="space-y-4 flex flex-col items-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -49,10 +46,8 @@ export function Footer() {
               </div>
             </div>
           </motion.div>
-
-          {/* Certificates */}
           <motion.div
-            className="space-y-4"
+            className="space-y-4 flex flex-col items-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -75,8 +70,6 @@ export function Footer() {
             </div>
           </motion.div>
         </div>
-
-        {/* Bottom */}
         <motion.div
           className="pt-8 border-t border-gray-800 text-center"
           initial={{ opacity: 0 }}

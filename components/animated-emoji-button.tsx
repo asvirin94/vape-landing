@@ -28,13 +28,11 @@ export function AnimatedEmojiButton({ onClick, size = "lg", className, children,
   const [isAnimating, setIsAnimating] = useState(false)
 
   const createEmojis = () => {
-    // Если анимация уже идет, не запускаем новую
     if (isAnimating) return
 
     setIsAnimating(true)
     const newEmojis: Emoji[] = []
 
-    // Создаем по 3 эмодзи каждого типа
     const emojiTypes = ["😎", "🔥"]
 
     emojiTypes.forEach((emojiType, typeIndex) => {
@@ -42,17 +40,16 @@ export function AnimatedEmojiButton({ onClick, size = "lg", className, children,
         newEmojis.push({
           id: Date.now() + typeIndex * 3 + i,
           emoji: emojiType,
-          x: (Math.random() - 0.5) * 300, // Увеличенный разброс по X от -150 до 150
-          y: (Math.random() - 0.5) * 300, // Увеличенный разброс по Y от -150 до 150
-          rotation: Math.random() * 720, // Увеличенное вращение до 720 градусов
-          scale: 0.8 + Math.random() * 0.6, // Размер от 0.8 до 1.4
+          x: (Math.random() - 0.5) * 300,
+          y: (Math.random() - 0.5) * 300,
+          rotation: Math.random() * 720,
+          scale: 0.8 + Math.random() * 0.6,
         })
       }
     })
 
     setEmojis(newEmojis)
 
-    // Убираем эмодзи и разрешаем новую анимацию через 2.5 секунды
     setTimeout(() => {
       setEmojis([])
       setIsAnimating(false)
@@ -69,16 +66,11 @@ export function AnimatedEmojiButton({ onClick, size = "lg", className, children,
         {children}
       </Button>
 
-      {/* Анимированные эмодзи */}
       <div className="absolute inset-0 pointer-events-none">
         {emojis.map((emoji) => (
           <motion.div
             key={emoji.id}
             className="absolute top-1/2 left-1/2 select-none"
-            style={{
-              fontSize: "28px",
-              fontFamily: "Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif",
-            }}
             initial={{
               x: 0,
               y: 0,
@@ -100,6 +92,8 @@ export function AnimatedEmojiButton({ onClick, size = "lg", className, children,
             }}
             style={{
               transform: "translate(-50%, -50%)",
+              fontSize: "28px",
+              fontFamily: "Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif",
             }}
           >
             {emoji.emoji}

@@ -22,7 +22,6 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
     console.log("Form submitted:", formData)
   }
 
@@ -37,7 +36,6 @@ export function ContactForm() {
     <section id="contact" className="py-12 tablet:py-16 laptop:py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900" />
 
-      {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-32 h-32 bg-green-400/10 rounded-full blur-xl animate-pulse" />
         <div
@@ -54,7 +52,7 @@ export function ContactForm() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl mobile:text-4xl tablet:text-5xl font-bold mb-6">
+          <h2 className="text-white text-3xl mobile:text-4xl tablet:text-5xl font-bold mb-6">
             Готов стать официальным{" "}
             <span className="bg-gradient-to-r from-green-400 to-purple-500 bg-clip-text text-transparent">
               оптовым партнёром?
@@ -73,7 +71,6 @@ export function ContactForm() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <form onSubmit={handleSubmit} className="space-y-6 tablet:space-y-8">
-            {/* First row */}
             <div className="grid tablet:grid-cols-2 gap-6 tablet:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -111,7 +108,6 @@ export function ContactForm() {
               </motion.div>
             </div>
 
-            {/* Second row */}
             <div className="grid tablet:grid-cols-2 gap-6 tablet:gap-8">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -169,7 +165,6 @@ export function ContactForm() {
               />
             </motion.div>
 
-            {/* Submit button */}
             <motion.div
               className="text-center pt-4"
               initial={{ opacity: 0, y: 20 }}

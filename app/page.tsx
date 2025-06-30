@@ -37,25 +37,6 @@ export const metadata: Metadata = {
   },
 }
 
-const staticPageData = {
-  hero: {
-    title: "Стань оптовым партнёром легендарного бренда",
-    subtitle: "Жидкости и POD-системы, которые знают все!",
-    cta: "Стать партнёром",
-  },
-  stats: {
-    flavors: "30+",
-    lines: "4",
-    support: "24/7",
-    license: "100%",
-  },
-  benefits: [
-    "30+ вкусов, которые сносят крышу",
-    "4 линейки продукции для любого настроения",
-    "100% легально и с гарантией качества",
-  ],
-}
-
 export default function HomePage() {
   return (
     <>
@@ -79,8 +60,8 @@ export default function HomePage() {
 
       {/* Основной контент страницы */}
       <Header />
-      <OptimizedHeroBanner staticData={staticPageData.hero} />
-      <AboutBrand staticData={staticPageData.stats} />
+      <OptimizedHeroBanner />
+      <AboutBrand />
       <WhyChooseUsClean />
       <CollectionsRedesigned />
       <HowToBecome />

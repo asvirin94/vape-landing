@@ -85,7 +85,6 @@ export function Header() {
             Стать партнёром
           </AnimatedEmojiButton>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="laptop:hidden p-2 text-white hover:text-green-400 transition-colors"
@@ -95,7 +94,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <motion.div
         className={`laptop:hidden bg-black/95 backdrop-blur-md border-t border-green-500/20 ${
           mobileMenuOpen ? "block" : "hidden"

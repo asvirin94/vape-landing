@@ -40,7 +40,6 @@ export function OptimizedHeroBanner() {
   // Минимальное расстояние для свайпа
   const minSwipeDistance = 50
 
-  // Touch события
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null)
     setTouchStart(e.targetTouches[0].clientX)
@@ -64,7 +63,6 @@ export function OptimizedHeroBanner() {
     }
   }
 
-  // Mouse события
   const onMouseDown = (e: React.MouseEvent) => {
     setIsMouseDown(true)
     setMouseEnd(null)
@@ -100,7 +98,7 @@ export function OptimizedHeroBanner() {
 
   // Предзагрузка всех изображений при монтировании компонента
   useEffect(() => {
-    slides.forEach((slide, index) => {
+    slides.forEach((slide) => {
       const img = new window.Image()
       img.src = slide.image
     })
@@ -150,22 +148,18 @@ export function OptimizedHeroBanner() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 tablet:pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 tablet:py-20"
       aria-label="Главный баннер ZEF VAPE"
     >
-      {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.1),transparent_50%)]" />
       </div>
-
-      {/* Stable floating particles - полностью независимые и стабильные */}
       <div className="absolute inset-0" style={{ isolation: "isolate" }}>
         <StableFloatingParticles />
       </div>
 
       <div className="container mx-auto px-4 grid laptop:grid-cols-2 gap-8 laptop:gap-12 items-center relative z-10">
-        {/* Content */}
         <motion.div
           className="space-y-6 tablet:space-y-8 text-center laptop:text-left"
           initial={{ opacity: 0, x: -50 }}
@@ -183,7 +177,7 @@ export function OptimizedHeroBanner() {
 
           <div className="space-y-4">
             <motion.h1
-              className="text-2xl mobile:text-3xl tablet:text-4xl laptop:text-5xl desktop:text-6xl font-bold leading-tight"
+              className="text-2xl mobile:text-3xl tablet:text-4xl laptop:text-5xl desktop:text-6xl font-bold leading-tight text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -213,7 +207,7 @@ export function OptimizedHeroBanner() {
             <AnimatedEmojiButton
               onClick={scrollToContact}
               size="lg"
-              className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-black font-semibold px-6 tablet:px-8 py-4 tablet:py-6 text-base tablet:text-lg"
+              className="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-black font-semibold px-6 tablet:px-8 py-4 tablet:py-6 text-base tablet:text-lg"
               aria-label="Перейти к форме заявки на партнёрство"
             >
               Стать партнёром
@@ -230,7 +224,6 @@ export function OptimizedHeroBanner() {
           </motion.div>
         </motion.div>
 
-        {/* Slider с оптимизированными изображениями */}
         <motion.div
           className="relative order-first laptop:order-last"
           initial={{ opacity: 0, x: 50 }}
@@ -249,7 +242,6 @@ export function OptimizedHeroBanner() {
             role="region"
             aria-label="Слайдер продукции Rick & Morty VAPE"
           >
-            {/* Рендерим ВСЕ изображения одновременно, но показываем только текущее */}
             {slides.map((slide, index) => (
               <motion.div
                 key={slide.id}
@@ -279,7 +271,6 @@ export function OptimizedHeroBanner() {
               </motion.div>
             ))}
 
-            {/* Navigation */}
             <button
               onClick={() => handleManualNavigation(prevSlide)}
               className="absolute left-2 tablet:left-4 top-1/2 -translate-y-1/2 p-1.5 tablet:p-2 bg-black/50 hover:bg-black/70 rounded-full transition-colors z-10"
@@ -295,7 +286,6 @@ export function OptimizedHeroBanner() {
               <ChevronRight className="w-4 h-4 tablet:w-6 tablet:h-6 text-white" />
             </button>
 
-            {/* Dots */}
             <div
               className="absolute bottom-2 tablet:bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10"
               role="tablist"

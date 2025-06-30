@@ -356,9 +356,6 @@ export default function RootLayout({
         <meta name="theme-color" content="#22c55e" />
         <meta name="color-scheme" content="dark light" />
 
-        {/* Дополнительные мета-теги для SEO */}
-        <meta name="format-detection" content="telephone=no" />
-
         {/* Geo теги */}
         <meta name="geo.region" content="RU" />
         <meta name="geo.placename" content="Россия" />
@@ -415,15 +412,15 @@ export default function RootLayout({
         </main>
 
         {/* Noscript для Яндекс.Метрики */}
-        <noscript>
-          <div>
-            <img
-              src="https://mc.yandex.ru/watch/YANDEX_METRIKA_ID"
-              style={{ position: "absolute", left: "-9999px" }}
-              alt=""
-            />
-          </div>
-        </noscript>
+        {/*<noscript>*/}
+        {/*  <div>*/}
+        {/*    <img*/}
+        {/*      src="https://mc.yandex.ru/watch/YANDEX_METRIKA_ID"*/}
+        {/*      style={{ position: "absolute", left: "-9999px" }}*/}
+        {/*      alt=""*/}
+        {/*    />*/}
+        {/*  </div>*/}
+        {/*</noscript>*/}
       </body>
     </html>
   )

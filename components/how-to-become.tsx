@@ -49,7 +49,6 @@ export function HowToBecome() {
     <section id="partnership" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black" />
 
-      {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-green-400/5 rounded-full blur-3xl animate-pulse" />
         <div
@@ -65,7 +64,7 @@ export function HowToBecome() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-white text-4xl md:text-5xl font-bold mb-6">
             Как стать оптовым{" "}
             <span className="bg-gradient-to-r from-green-400 to-purple-500 bg-clip-text text-transparent">
               партнёром
@@ -79,7 +78,6 @@ export function HowToBecome() {
 
         {/* Desktop Timeline */}
         <div className="hidden lg:block relative max-w-6xl mx-auto">
-          {/* Progress Line - теперь с бесконечной анимацией */}
           <div className="absolute top-24 left-0 right-0 h-1 bg-gray-800 rounded-full">
             <motion.div
               className="h-full bg-gradient-to-r from-green-400 via-blue-400 via-purple-400 to-orange-400 rounded-full"

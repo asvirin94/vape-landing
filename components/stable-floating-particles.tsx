@@ -17,18 +17,14 @@ interface Particle {
 const StableFloatingParticlesComponent = memo(() => {
   const [isClient, setIsClient] = useState(false)
 
-  // Убеждаемся, что компонент рендерится только на клиенте
   useEffect(() => {
     setIsClient(true)
   }, [])
 
-  // Создаем стабильные частицы с предопределенными значениями
   const particles = useMemo(() => {
     if (!isClient) return []
 
-    // Предопределенные позиции для стабильности
     const predefinedPositions = [
-      // Зеленые частицы
       { x: 10, y: 20, size: 1, color: "bg-green-400", duration: 15, delay: 0, pattern: "circular" },
       { x: 80, y: 30, size: 1.2, color: "bg-green-400", duration: 18, delay: 2, pattern: "wave" },
       { x: 25, y: 70, size: 0.8, color: "bg-green-400", duration: 12, delay: 4, pattern: "random" },
@@ -117,7 +113,6 @@ const StableFloatingParticlesComponent = memo(() => {
     }
   }
 
-  // Не рендерим ничего на сервере
   if (!isClient) {
     return <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true" />
   }

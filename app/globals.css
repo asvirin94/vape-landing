@@ -68,7 +68,6 @@
   }
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -86,7 +85,6 @@
   background: linear-gradient(to bottom, #16a34a, #9333ea);
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }

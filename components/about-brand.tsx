@@ -18,7 +18,7 @@ export function AboutBrand() {
   const stats = [
     { value: "30+", label: "Уникальных вкусов", color: "text-green-400" },
     { value: "4", label: "Линейки продукции", color: "text-purple-400" },
-    { value: "100%", label: "Сертифицированное качество", color: "text-blue-400" },
+    { value: "100%", label: "Качество", color: "text-blue-400" },
     { value: "∞", label: "Узнаваемость бренда", color: "text-pink-400" },
   ]
 
@@ -43,7 +43,7 @@ export function AboutBrand() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 id="about-heading" className="text-3xl mobile:text-4xl tablet:text-5xl font-bold mb-6">
+          <h2 id="about-heading" className="text-white text-3xl mobile:text-4xl tablet:text-5xl font-bold mb-6">
             О{" "}
             <span className="bg-gradient-to-r from-green-400 to-purple-500 bg-clip-text text-transparent">бренде</span>
           </h2>
@@ -94,10 +94,6 @@ export function AboutBrand() {
           >
             <div className="relative p-6 tablet:p-8 desktop:p-10 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl border border-gray-700/50 backdrop-blur-sm">
               <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 to-purple-500/10 rounded-2xl" />
-
-              {/* Decorative elements */}
-              <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-400 rounded-full opacity-60" />
-              <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-purple-400 rounded-full opacity-60" />
 
               <div className="relative z-10">
                 <div className="grid grid-cols-2 gap-6 tablet:gap-8 text-center">

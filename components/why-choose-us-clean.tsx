@@ -70,23 +70,19 @@ export function WhyChooseUsClean() {
 
   return (
     <section className="py-20 relative overflow-hidden">
-      {/* Фон как раньше */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-gray-900" />
-
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
-        {/* Заголовок */}
         <motion.div
           className="text-center mb-20"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 relative">
+          <h2 className="text-white text-5xl md:text-7xl font-bold mb-6 relative">
             <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Почему выбирают
+              Почему выбирают{' '}
             </span>
-            <br />
-            <span className="text-white">нас</span>
+            нас
           </h2>
 
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -98,46 +94,7 @@ export function WhyChooseUsClean() {
           </p>
         </motion.div>
 
-        {/* Карточки с адаптивной сеткой */}
         <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
-          <style jsx>{`
-            .card-container {
-              width: 40%;
-              min-width: 280px;
-            }
-            
-            @media (min-width: 768px) {
-              .card-container {
-                width: calc(50% - 12px);
-                flex: 0 0 calc(50% - 12px);
-              }
-            }
-            
-            @media (min-width: 920px) {
-              .card-container {
-                width: calc(33.333% - 16px);
-                flex: 0 0 calc(33.333% - 16px);
-              }
-              .card-container:nth-child(4),
-              .card-container:nth-child(5) {
-                width: calc(50% - 12px);
-                flex: 0 0 calc(50% - 12px);
-              }
-            }
-            
-            @media (min-width: 1600px) {
-              .card-container {
-                width: calc(20% - 19.2px);
-                flex: 0 0 calc(20% - 19.2px);
-              }
-              .card-container:nth-child(4),
-              .card-container:nth-child(5) {
-                width: calc(20% - 19.2px);
-                flex: 0 0 calc(20% - 19.2px);
-              }
-            }
-          `}</style>
-
           {experiments.map((experiment, index) => {
             const Icon = experiment.icon
             const isActive = activeExperiment === index
@@ -145,14 +102,13 @@ export function WhyChooseUsClean() {
             return (
               <motion.div
                 key={index}
-                className="cursor-pointer group card-container"
+                className="cursor-pointer tablet:w-[60%] laptop:w-[30%]"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 onHoverStart={() => setActiveExperiment(index)}
                 onHoverEnd={() => setActiveExperiment(null)}
               >
-                {/* Информационная панель */}
                 <motion.div
                   className="p-6 bg-gray-900/95 backdrop-blur-sm rounded-2xl border-2 shadow-2xl h-[380px] w-full"
                   style={{ borderColor: isActive ? experiment.portalColor : "rgba(75, 85, 99, 0.5)" }}
@@ -169,7 +125,6 @@ export function WhyChooseUsClean() {
                   />
 
                   <div className="relative z-10 space-y-4 h-full flex flex-col">
-                    {/* Иконка */}
                     <motion.div
                       className={`w-16 h-16 bg-gradient-to-r ${experiment.color} rounded-xl flex items-center justify-center shadow-lg mx-auto`}
                       animate={{
@@ -180,8 +135,6 @@ export function WhyChooseUsClean() {
                     >
                       <Icon className="w-8 h-8 text-black" />
                     </motion.div>
-
-                    {/* Формула эксперимента */}
                     <div className="text-center">
                       <motion.div
                         className="inline-block px-4 py-2 bg-black/70 rounded-full border-2"
@@ -209,7 +162,6 @@ export function WhyChooseUsClean() {
                       {experiment.description}
                     </p>
 
-                    {/* Эмодзи эффекты */}
                     <div className="flex justify-center space-x-4 mt-auto">
                       {experiment.bubbles.map((bubble, i) => (
                         <motion.span
@@ -237,7 +189,6 @@ export function WhyChooseUsClean() {
           })}
         </div>
 
-        {/* Результаты */}
         <motion.div
           className="mt-20 text-center"
           initial={{ opacity: 0, y: 50 }}
@@ -272,7 +223,7 @@ export function WhyChooseUsClean() {
             >
               🌀
             </motion.span>
-            <span className="text-green-400 font-bold text-xl">Готовы к межпространственному сотрудничеству?</span>
+            <span className="text-green-400 font-bold text-xl">Готовы к сотрудничеству?</span>
             <motion.span
               className="text-3xl"
               animate={{
@@ -284,31 +235,6 @@ export function WhyChooseUsClean() {
               🚀
             </motion.span>
           </motion.div>
-        </motion.div>
-
-        {/* Статистика */}
-        <motion.div
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 2.5 }}
-        >
-          {[
-            { value: "30+", label: "Уникальных вкусов", color: "text-green-400" },
-            { value: "4", label: "Линейки продукции", color: "text-blue-400" },
-            { value: "24/7", label: "Поддержка партнеров", color: "text-purple-400" },
-            { value: "100%", label: "Официальная лицензия", color: "text-yellow-400" },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              className="text-center p-6 bg-gray-800/40 rounded-xl border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -5 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className={`text-3xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
-              <div className="text-gray-400 text-sm">{stat.label}</div>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>
