@@ -1,10 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Unbounded } from "next/font/google"
 import "./globals.css"
 import { PageLoader } from "@/components/page-loader"
 
-const inter = Inter({
+const unbounded = Unbounded({
   subsets: ["latin", "cyrillic"],
   display: "swap",
   preload: true,
@@ -405,7 +405,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className} suppressHydrationWarning>
+      <body className={unbounded.className} suppressHydrationWarning>
         <PageLoader />
         <main role="main" id="main-content">
           {children}

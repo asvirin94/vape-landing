@@ -1,32 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Принудительная статическая генерация для максимального SEO
   output: 'export',
   trailingSlash: true,
-  
-  // Оптимизация изображений для SEO
+
   images: {
     unoptimized: true,
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 31536000, // 1 год кэширования
+    minimumCacheTTL: 31536000,
   },
-  
-  // Экспериментальные функции для производительности
+
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'lucide-react'],
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
   },
-  
-  // Оптимизация компилятора
+
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
     reactRemoveProperties: process.env.NODE_ENV === 'production',
   },
-  
-  // SEO-оптимизированные заголовки
+
   async headers() {
     return [
       {
@@ -98,11 +93,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  
-  // Оптимизация бандла
+
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
-      // Оптимизация для продакшена
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
