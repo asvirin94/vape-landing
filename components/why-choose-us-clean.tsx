@@ -196,7 +196,7 @@ export function WhyChooseUsClean() {
           transition={{ duration: 0.8, delay: 2 }}
         >
           <motion.div
-            className="inline-flex items-center space-x-4 px-8 py-4 bg-gradient-to-r from-green-400/20 via-blue-400/20 to-purple-500/20 rounded-full border-2 border-green-400/30 backdrop-blur-sm"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-400/20 via-blue-400/20 to-purple-500/20 rounded-full border-2 border-green-400/30 backdrop-blur-sm"
             animate={{
               boxShadow: [
                 "0 0 30px rgba(34, 197, 94, 0.3)",
@@ -213,27 +213,55 @@ export function WhyChooseUsClean() {
             }}
             transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
           >
-            <motion.span
-              className="text-3xl"
-              animate={{
-                rotate: [0, 360],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            >
-              🌀
-            </motion.span>
-            <span className="text-green-400 font-bold text-xl">Готовы к сотрудничеству?</span>
-            <motion.span
-              className="text-3xl"
-              animate={{
-                scale: [1, 1.3, 1],
-                rotate: [0, -360],
-              }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            >
-              🚀
-            </motion.span>
+            {/* Mobile Layout - Icons above and below text */}
+            <div className="flex flex-col items-center space-y-4 tablet:hidden">
+              <motion.span
+                className="text-3xl"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              >
+                🌀
+              </motion.span>
+              <span className="text-green-400 font-bold text-xl">Готовы к сотрудничеству?</span>
+              <motion.span
+                className="text-3xl"
+                animate={{
+                  scale: [1, 1.3, 1],
+                  rotate: [0, -360],
+                }}
+                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+              >
+                🚀
+              </motion.span>
+            </div>
+
+            {/* Desktop Layout - Icons on sides */}
+            <div className="hidden tablet:flex items-center space-x-4">
+              <motion.span
+                className="text-3xl"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+              >
+                🌀
+              </motion.span>
+              <span className="text-green-400 font-bold text-xl">Готовы к сотрудничеству?</span>
+              <motion.span
+                className="text-3xl"
+                animate={{
+                  scale: [1, 1.3, 1],
+                  rotate: [0, -360],
+                }}
+                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+              >
+                🚀
+              </motion.span>
+            </div>
           </motion.div>
         </motion.div>
       </div>

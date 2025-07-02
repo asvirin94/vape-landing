@@ -76,14 +76,17 @@ export function Header() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <AnimatedEmojiButton
-            onClick={() => scrollToSection("contact")}
-            className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-black font-semibold text-xs tablet:text-sm px-3 tablet:px-4 py-2"
-            size="sm"
-            aria-label="Стать партнёром"
-          >
-            Стать партнёром
-          </AnimatedEmojiButton>
+          {/* Desktop Partner Button - hidden on mobile */}
+          <div className="hidden tablet:block">
+            <AnimatedEmojiButton
+              onClick={() => scrollToSection("contact")}
+              className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-black font-semibold text-xs tablet:text-sm px-3 tablet:px-4 py-2"
+              size="sm"
+              aria-label="Стать партнёром"
+            >
+              Стать партнёром
+            </AnimatedEmojiButton>
+          </div>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
