@@ -15,9 +15,16 @@ export function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
   }
 
   const handleBackdropClick = (e: React.MouseEvent) => {
+    // Закрываем модалку только если клик был именно по backdrop
     if (e.target === e.currentTarget) {
       onClose()
     }
+  }
+
+  const handleCloseClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    onClose()
   }
 
   return (
@@ -76,9 +83,10 @@ export function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
 
             {/* Close button */}
             <button
-              onClick={onClose}
+              onClick={handleCloseClick}
               className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white transition-colors z-10 bg-black/20 rounded-full hover:bg-black/40 cursor-pointer"
               aria-label="Закрыть модальное окно"
+              type="button"
             >
               <X className="w-5 h-5" />
             </button>
