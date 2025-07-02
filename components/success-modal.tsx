@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, ExternalLink } from "lucide-react"
+import { X, ExternalLink, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface SuccessModalProps {
@@ -40,6 +40,7 @@ export function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.8, opacity: 0, y: 50 }}
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Animated background */}
             <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 via-blue-400/5 to-purple-500/10" />
@@ -76,7 +77,8 @@ export function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white transition-colors z-10 bg-black/20 rounded-full hover:bg-black/40"
+              className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white transition-colors z-10 bg-black/20 rounded-full hover:bg-black/40 cursor-pointer"
+              aria-label="Закрыть модальное окно"
             >
               <X className="w-5 h-5" />
             </button>
@@ -90,14 +92,13 @@ export function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ delay: 0.2, type: "spring", damping: 15 }}
               >
-                <motion.span
-                  className="text-3xl"
+                <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
                 >
-                  ✅
-                </motion.span>
+                  <CheckCircle2 className="w-10 h-10 text-black" />
+                </motion.div>
               </motion.div>
 
               {/* Title */}
@@ -118,12 +119,12 @@ export function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
                 transition={{ delay: 0.4 }}
               >
                 <p className="text-gray-300 leading-relaxed">
-                  <span className="text-green-400 font-semibold">Менеджер свяжется с вами в течении 24 часов!</span>
+                  <span className="text-green-400 font-semibold">Менеджер свяжется с вами в течение 24 часов!</span>
                 </p>
                 
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  А пока, подпишитесь на телеграмм канал{" "}
-                  <span className="text-blue-400 font-semibold">hooska land</span>, чтобы в числе первых узнать о новых производителях и поставщиков рынка
+                  А пока подпишитесь на телеграм-канал{" "}
+                  <span className="text-blue-400 font-semibold">Hooska Land</span>, чтобы в числе первых узнавать о новых производителях и поставщиках рынка.
                 </p>
               </motion.div>
 
